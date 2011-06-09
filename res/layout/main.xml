@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout android:id="@+id/absoluteLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+<AbsoluteLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
         <Button android:id="@+id/sdButton" android:layout_width="100dip" android:text="SD" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="50dip"></Button>
         <Button android:id="@+id/i2cButton" android:layout_width="100dip" android:text="I2C" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="120dip"></Button>
         <Button android:id="@+id/spiButton" android:layout_width="100dip" android:text="SPI" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="190dip"></Button>
         <Button android:id="@+id/dmaButton" android:layout_width="100dip" android:text="DMA" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="260dip"></Button>
        <!--<Button android:id="@+id/btnHome" android:layout_width="100dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>-->
-       <Button android:id="@+id/btnBack" android:layout_width="100dip" android:text="BACK" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
-        <Button android:id="@+id/btnExit" android:layout_width="100dip" android:text="EXIT" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
-           
+      	<Button android:id="@+id/btnBack" android:layout_width="100px" android:drawableTop="@drawable/back" android:layout_height="100px" android:layout_x="350dip" android:layout_y="400dip"></Button>
+       <Button android:id="@+id/btnExit" android:layout_width="100px" android:drawableTop="@drawable/exit" android:layout_height="100px" android:layout_x="500dip" android:layout_y="400dip"></Button>
+    
  </AbsoluteLayout>
+<!-- // TODO: Change layouts to relative -->

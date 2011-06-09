@@ -1,5 +1,7 @@
 package android.ph;
 
+import java.io.IOException;
+
 import dma.DMAActivity;
 import i2c.I2CActivity;
 import sd.SDActivity;
@@ -13,6 +15,8 @@ import android.widget.Button;
 import android.content.Intent;
 
 public class StartActivity extends Activity {
+	Runtime runtime = Runtime.getRuntime();
+    Process p1 = null,p2 = null;
 	Button sd,i2c,spi,dma,back,exit;
 	
 	@Override
@@ -25,6 +29,9 @@ public class StartActivity extends Activity {
         dma = (Button)findViewById(R.id.dmaButton);
         back = (Button)findViewById(R.id.btnBack);
         exit = (Button)findViewById(R.id.btnExit);
+        
+        exec_entry(); //call entry script for basic busybox installation and other 
+        				//steps
         
         exit.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -75,8 +82,17 @@ public class StartActivity extends Activity {
 		        //finish();
 		       		        
 			}
-		});
-                       
+		});         
         
     }
+
+	private void exec_entry() {
+		try {
+        	p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/local/entry.sh");
+			p2 = Runtime.getRuntime().exec("/data/local/entry.sh");
+        } catch (IOException e) {
+	
+		e.printStackTrace();
+        }	
+	}
 }

@@ -58,8 +58,7 @@ public class I2CActivity extends Activity{
         	
         	proc = Runtime.getRuntime().exec("/data/local/sd_test.sh");
         } catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+				e.printStackTrace();
         }
     }
 }

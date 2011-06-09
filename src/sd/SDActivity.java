@@ -15,12 +15,16 @@ public class SDActivity extends Activity {
     
     Runtime runtime = Runtime.getRuntime();
     Process proc = null;
-    Button sd1,home,exit,back;
+    Button mount,unmount,remount,fileops,full,home,exit,back;
         
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sd);
-        sd1 = (Button)findViewById(R.id.sd1Button);
+        mount = (Button)findViewById(R.id.mount);
+        unmount = (Button)findViewById(R.id.unmount);
+        remount = (Button)findViewById(R.id.remount);
+        fileops = (Button)findViewById(R.id.fileops);
+        full = (Button)findViewById(R.id.full);
         home = (Button)findViewById(R.id.HomeSD);
         back = (Button)findViewById(R.id.BackSD);
         exit = (Button)findViewById(R.id.ExitSD);
@@ -44,21 +48,45 @@ public class SDActivity extends Activity {
             }
         });
         
-        sd1.setOnClickListener(new OnClickListener() {
+        mount.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				exec_shell();
-		       // finish();		        
+						        
 			}
-		});                
+		});
+        
+        unmount.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				     
+			}
+		});
+       remount.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+					        
+			}
+		});
+        fileops.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				     
+			}
+		});
+        full.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				exec_sdfulltest();		        
+			}
+		});
     }
         
-    void exec_shell(){
+    void exec_sdfulltest(){
         try {
         	
-        	proc = Runtime.getRuntime().exec("/data/local/sd_test.sh");
+        	proc = Runtime.getRuntime().exec("/data/kernel-tests/sd_test.sh");
         } catch (IOException e) {
-		// TODO Auto-generated catch block
+	
 		e.printStackTrace();
         }
     }

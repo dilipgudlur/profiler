@@ -25,6 +25,7 @@ public class SPIActivity extends Activity{
         
         exit.setOnClickListener(new View.OnClickListener() {
 			@Override
+			//TODO: remove in each sub activity..not a good practice
 			public void onClick(View v) {
 				System.exit(0);
 			}
@@ -56,7 +57,7 @@ public class SPIActivity extends Activity{
         	
         	proc = Runtime.getRuntime().exec("/data/local/sd_test.sh");
         } catch (IOException e) {
-		// TODO Auto-generated catch block
+	
 		e.printStackTrace();
         }
     }
