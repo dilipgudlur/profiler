@@ -1,9 +1,9 @@
 package dma;
 
-import java.io.IOException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.ph.OuputActivity;
 import android.ph.R;
 import android.ph.StartActivity;
 import android.view.View;
@@ -15,20 +15,20 @@ public class DMAActivity extends Activity {
     
     Runtime runtime = Runtime.getRuntime();
     Process proc = null;
-    Button dma1,home,exit,back;
+    Button dma,home,exit,back;
         
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dma);
-        dma1 = (Button)findViewById(R.id.dma1Button);
-        home = (Button)findViewById(R.id.HomeDMA);
-        back = (Button)findViewById(R.id.BackDMA);
-        exit = (Button)findViewById(R.id.ExitDMA);
+        dma = (Button)findViewById(R.id.dma);
+        home = (Button)findViewById(R.id.home);
+        back = (Button)findViewById(R.id.back);
+        exit = (Button)findViewById(R.id.exit);
         
         exit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				System.exit(0);
+				android.os.Process.killProcess(android.os.Process.myPid());	
 			}
 		});
         
@@ -44,22 +44,13 @@ public class DMAActivity extends Activity {
             }
         });
                 
-        dma1.setOnClickListener(new OnClickListener() {
+        dma.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				exec_shell();
-		       // finish();		        
+				Intent i = new Intent(DMAActivity.this, OuputActivity.class);
+		        i.putExtra("device",4);	//4 is DMA	
+				startActivity(i);	   	        
 			}
 		});                
-    }
-        
-    void exec_shell(){
-        try {
-        	
-        	proc = Runtime.getRuntime().exec("/data/local/sd_test.sh");
-        } catch (IOException e) {
-		
-		e.printStackTrace();
-        }
-    }
+    }   
 }

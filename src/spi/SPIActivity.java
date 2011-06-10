@@ -1,9 +1,9 @@
 package spi;
 
-import java.io.IOException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.ph.OuputActivity;
 import android.ph.R;
 import android.ph.StartActivity;
 import android.view.View;
@@ -13,21 +13,21 @@ import android.widget.Button;
 public class SPIActivity extends Activity{
 	Runtime runtime = Runtime.getRuntime();
     Process proc = null;
-    Button spi1,home,exit,back;
+    Button spi,home,exit,back;
         
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spi);
-        spi1 = (Button)findViewById(R.id.spi1Button);
-        home = (Button)findViewById(R.id.HomeSPI);
-        back = (Button)findViewById(R.id.BackSPI);
-        exit = (Button)findViewById(R.id.ExitSPI);
+        spi = (Button)findViewById(R.id.spi);
+        home = (Button)findViewById(R.id.home);
+        back = (Button)findViewById(R.id.back);
+        exit = (Button)findViewById(R.id.exit);
         
         exit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			//TODO: remove in each sub activity..not a good practice
 			public void onClick(View v) {
-				System.exit(0);
+				android.os.Process.killProcess(android.os.Process.myPid());	
 			}
 		});
         
@@ -43,22 +43,13 @@ public class SPIActivity extends Activity{
             }
         });
         
-        spi1.setOnClickListener(new OnClickListener() {
+        spi.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				exec_shell();
-		       // finish();		        
+				Intent i = new Intent(SPIActivity.this, OuputActivity.class);
+		        i.putExtra("device",3);	//3 is SPI	
+				startActivity(i);	   	        
 			}
 		});                
-    }
-        
-    void exec_shell(){
-        try {
-        	
-        	proc = Runtime.getRuntime().exec("/data/local/sd_test.sh");
-        } catch (IOException e) {
-	
-		e.printStackTrace();
-        }
     }
 }

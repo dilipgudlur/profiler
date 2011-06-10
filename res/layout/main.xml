@@ -6,7 +6,7 @@
         <Button android:id="@+id/dmaButton" android:layout_width="100dip" android:text="DMA" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="260dip"></Button>
        <!--<Button android:id="@+id/btnHome" android:layout_width="100dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>-->
       	<Button android:id="@+id/btnBack" android:layout_width="100px" android:drawableTop="@drawable/back" android:layout_height="100px" android:layout_x="350dip" android:layout_y="400dip"></Button>
-       <Button android:id="@+id/btnExit" android:layout_width="100px" android:drawableTop="@drawable/exit" android:layout_height="100px" android:layout_x="500dip" android:layout_y="400dip"></Button>
+       <Button android:id="@+id/btnExit" android:layout_width="100px" android:drawableTop="@drawable/exit" android:layout_height="100px" android:layout_x="500dip" android:layout_y="405dip"></Button>
     
  </AbsoluteLayout>
 <!-- // TODO: Change layouts to relative -->

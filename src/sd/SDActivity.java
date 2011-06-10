@@ -1,10 +1,10 @@
 package sd;
 
-import java.io.IOException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.ph.R;
+import android.ph.OuputActivity;
 import android.ph.StartActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,24 +15,25 @@ public class SDActivity extends Activity {
     
     //Runtime runtime = Runtime.getRuntime();
     //Process proc = null;
-    Button mount,unmount,remount,fileops,full,home,exit,back;
+    Button full,home,exit,back;
+    int device;
         
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sd);
-        mount = (Button)findViewById(R.id.mount);
+        /*mount = (Button)findViewById(R.id.mount);
         unmount = (Button)findViewById(R.id.unmount);
         remount = (Button)findViewById(R.id.remount);
-        fileops = (Button)findViewById(R.id.fileops);
+        fileops = (Button)findViewById(R.id.fileops);*/
         full = (Button)findViewById(R.id.full);
-        home = (Button)findViewById(R.id.HomeSD);
-        back = (Button)findViewById(R.id.BackSD);
-        exit = (Button)findViewById(R.id.ExitSD);
+        home = (Button)findViewById(R.id.home);
+        back = (Button)findViewById(R.id.back);
+        exit = (Button)findViewById(R.id.exit);
         
         exit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				System.exit(0);
+				android.os.Process.killProcess(android.os.Process.myPid());
 			}
 		});
         
@@ -48,7 +49,7 @@ public class SDActivity extends Activity {
             }
         });
         
-        mount.setOnClickListener(new OnClickListener() {
+       /* mount.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 						        
@@ -72,24 +73,16 @@ public class SDActivity extends Activity {
 			public void onClick(View v) {
 				     
 			}
-		});
+		});*/
         full.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				//exec_sdfulltest();
-				Intent i = new Intent(SDActivity.this, SDOuputActivity.class);
-		        startActivity(i);
+				Intent i = new Intent(SDActivity.this, OuputActivity.class);
+		        i.putExtra("device", 1);			
+				//SDOuputActivity.disp();
+				startActivity(i);
 			}
 		});
     }
-        
-    /*void exec_sdfulltest(){
-        try {
-        	
-        	proc = Runtime.getRuntime().exec("/data/kernel-tests/sd_test.sh");
-        } catch (IOException e) {
-	
-		e.printStackTrace();
-        }
-    }*/
 }

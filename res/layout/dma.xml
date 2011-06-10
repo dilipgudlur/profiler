@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
     <AbsoluteLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-        <Button android:id="@+id/dma1Button" android:layout_width="100dip" android:text="Profile" android:layout_height="40dip" android:layout_x="106dip" android:layout_y="28dip"></Button>
-        <Button android:id="@+id/HomeDMA" android:layout_width="100dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>
-       	<Button android:id="@+id/BackDMA" android:layout_width="100dip" android:text="BACK" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
-        <Button android:id="@+id/ExitDMA" android:layout_width="100dip" android:text="EXIT" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
+        <Button android:id="@+id/dma" android:layout_width="100dip" android:text="Test DMA" android:layout_height="40dip" android:layout_x="106dip" android:layout_y="28dip"></Button>
+        <Button android:id="@+id/home" android:layout_width="100dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>
+       	<Button android:id="@+id/back" android:layout_width="100dip" android:text="BACK" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
+        <Button android:id="@+id/exit" android:layout_width="100dip" android:text="EXIT" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
         
     </AbsoluteLayout>
     

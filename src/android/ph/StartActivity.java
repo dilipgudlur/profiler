@@ -1,7 +1,6 @@
 package android.ph;
 
 import java.io.IOException;
-
 import dma.DMAActivity;
 import i2c.I2CActivity;
 import sd.SDActivity;
@@ -36,7 +35,7 @@ public class StartActivity extends Activity {
         exit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				System.exit(0);
+				android.os.Process.killProcess(android.os.Process.myPid());
 			}
 		});
         

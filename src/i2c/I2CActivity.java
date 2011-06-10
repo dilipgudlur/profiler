@@ -1,10 +1,10 @@
 package i2c;
 
-import java.io.IOException;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.ph.R;
+import android.ph.OuputActivity;
 import android.ph.StartActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,20 +13,20 @@ import android.widget.Button;
 public class I2CActivity extends Activity{
 	Runtime runtime = Runtime.getRuntime();
     Process proc = null;
-    Button i2c1,exit,home,back;
+    Button i2c,exit,home,back;
         
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.i2c);
-        i2c1 = (Button)findViewById(R.id.i2c1Button);
-        home = (Button)findViewById(R.id.HomeI2C);
-        back = (Button)findViewById(R.id.BackI2C);
-        exit = (Button)findViewById(R.id.ExitI2C);
+        i2c = (Button)findViewById(R.id.i2c);
+        home = (Button)findViewById(R.id.home);
+        back = (Button)findViewById(R.id.back);
+        exit = (Button)findViewById(R.id.exit);
         
         exit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				System.exit(0);
+				android.os.Process.killProcess(android.os.Process.myPid());	
 			}
 		});
         
@@ -44,21 +44,13 @@ public class I2CActivity extends Activity{
             }
         });
         
-        i2c1.setOnClickListener(new OnClickListener() {
+        i2c.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				exec_shell();
-		       // finish();		        
+				Intent i = new Intent(I2CActivity.this, OuputActivity.class);
+		        i.putExtra("device",2);	//2 is I2C	
+				startActivity(i);	        
 			}
 		});                
     }
-        
-    void exec_shell(){
-        try {
-        	
-        	proc = Runtime.getRuntime().exec("/data/local/sd_test.sh");
-        } catch (IOException e) {
-				e.printStackTrace();
-        }
-    }
-}
+}  
