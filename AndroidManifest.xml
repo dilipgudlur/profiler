@@ -22,6 +22,7 @@
     <activity android:name="i2c.I2CActivity"></activity>
     <activity android:name="spi.SPIActivity"></activity>
     <activity android:name="dma.DMAActivity"></activity>
+    <activity android:name="sd.SDOuputActivity"></activity>
 
     </application>
 </manifest>

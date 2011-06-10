@@ -13,8 +13,8 @@ import android.widget.Button;
 public class SDActivity extends Activity {
     /** Called when the activity is first created. */
     
-    Runtime runtime = Runtime.getRuntime();
-    Process proc = null;
+    //Runtime runtime = Runtime.getRuntime();
+    //Process proc = null;
     Button mount,unmount,remount,fileops,full,home,exit,back;
         
     public void onCreate(Bundle savedInstanceState) {
@@ -76,12 +76,14 @@ public class SDActivity extends Activity {
         full.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				exec_sdfulltest();		        
+				//exec_sdfulltest();
+				Intent i = new Intent(SDActivity.this, SDOuputActivity.class);
+		        startActivity(i);
 			}
 		});
     }
         
-    void exec_sdfulltest(){
+    /*void exec_sdfulltest(){
         try {
         	
         	proc = Runtime.getRuntime().exec("/data/kernel-tests/sd_test.sh");
@@ -89,5 +91,5 @@ public class SDActivity extends Activity {
 	
 		e.printStackTrace();
         }
-    }
+    }*/
 }
