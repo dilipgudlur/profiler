@@ -1,8 +1,9 @@
 package android.ph;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import i2c.*;
+import dma.*;
+import spi.*;
+import sd.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,20 +29,19 @@ public class OuputActivity extends Activity {
         exit = (Button)findViewById(R.id.exit);
         device = getIntent().getIntExtra("device", -1);
         switch (device) {
-	        case 1:  output.setText( "Output = "+ exec_sdfulltest());  break;
-	        case 2:  output.setText( "Output = "+ exec_i2cfulltest()); break;
-	        case 3:  output.setText( "Output = "+ exec_spifulltest()); break;
-	        case 4:  output.setText( "Output = "+ exec_dmafulltest()); break;
+	        case 1:  output.setText( "Output = "+ SDActivity.exec_sdfulltest());  break;
+	        case 2:  output.setText( "Output = "+ I2CActivity.exec_i2cfulltest()); break;
+	        case 3:  output.setText( "Output = "+ SPIActivity.exec_spifulltest()); break;
+	        case 4:  output.setText( "Output = "+ DMAActivity.exec_dmafulltest()); break;
 	        
 	        default: errorString = "Invalid device"; break;
 	    }
-        
         
         exit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			//TODO: remove in each sub activity..not a good practice
 			public void onClick(View v) {
-				System.exit(0);
+				android.os.Process.killProcess(android.os.Process.myPid());
 			}
 		});
         
@@ -57,132 +57,4 @@ public class OuputActivity extends Activity {
             }
         });
 	}	
-	String exec_sdfulltest(){
-		try {
-		    // Executes the command.
-		    Process process = Runtime.getRuntime().exec("/data/kernel-tests/sd_test.sh");
-		    
-		    // Reads stdout.
-		    // NOTE: You can write to stdin of the command using
-
-		    //       process.getOutputStream().
-		    BufferedReader reader = new BufferedReader(
-		            new InputStreamReader(process.getInputStream()));
-		    int read;
-		    char[] buffer = new char[4096];
-		    StringBuffer output = new StringBuffer();
-
-		    while ((read = reader.read(buffer)) > 0) {
-		        output.append(buffer, 0, read);
-		    }
-		    reader.close();
-		    
-		    // Waits for the command to finish.
-		    process.waitFor();
-		    
-		    return output.toString();
-
-		} catch (IOException e) {
-		    throw new RuntimeException(e);
-		} catch (InterruptedException e) {
-		    throw new RuntimeException(e);
-		}
-    }
-	
-	String exec_i2cfulltest(){
-		try {
-		    // Executes the command.
-		    Process process = Runtime.getRuntime().exec("/data/kernel-tests/i2c-msm-test.sh");
-		    
-		    // Reads stdout.
-		    // NOTE: You can write to stdin of the command using
-
-		    //       process.getOutputStream().
-		    BufferedReader reader = new BufferedReader(
-		            new InputStreamReader(process.getInputStream()));
-		    int read;
-		    char[] buffer = new char[4096];
-		    StringBuffer output = new StringBuffer();
-
-		    while ((read = reader.read(buffer)) > 0) {
-		        output.append(buffer, 0, read);
-		    }
-		    reader.close();
-		    
-		    // Waits for the command to finish.
-		    process.waitFor();
-		    
-		    return output.toString();
-
-		} catch (IOException e) {
-		    throw new RuntimeException(e);
-		} catch (InterruptedException e) {
-		    throw new RuntimeException(e);
-		}
-    }
-	
-	String exec_spifulltest(){
-		try {
-		    // Executes the command.
-		    Process process = Runtime.getRuntime().exec("/data/kernel-tests/spidevtest.sh");
-		    
-		    // Reads stdout.
-		    // NOTE: You can write to stdin of the command using
-
-		    //       process.getOutputStream().
-		    BufferedReader reader = new BufferedReader(
-		            new InputStreamReader(process.getInputStream()));
-		    int read;
-		    char[] buffer = new char[4096];
-		    StringBuffer output = new StringBuffer();
-
-		    while ((read = reader.read(buffer)) > 0) {
-		        output.append(buffer, 0, read);
-		    }
-		    reader.close();
-		    
-		    // Waits for the command to finish.
-		    process.waitFor();
-		    
-		    return output.toString();
-
-		} catch (IOException e) {
-		    throw new RuntimeException(e);
-		} catch (InterruptedException e) {
-		    throw new RuntimeException(e);
-		}
-    }
-	
-	String exec_dmafulltest(){
-		try {
-		    // Executes the command.
-		    Process process = Runtime.getRuntime().exec("/data/kernel-tests/msm_dma.sh");
-		    
-		    // Reads stdout.
-		    // NOTE: You can write to stdin of the command using
-
-		    //       process.getOutputStream().
-		    BufferedReader reader = new BufferedReader(
-		            new InputStreamReader(process.getInputStream()));
-		    int read;
-		    char[] buffer = new char[4096];
-		    StringBuffer output = new StringBuffer();
-
-		    while ((read = reader.read(buffer)) > 0) {
-		        output.append(buffer, 0, read);
-		    }
-		    reader.close();
-		    
-		    // Waits for the command to finish.
-		    process.waitFor();
-		    
-		    return output.toString();
-
-		} catch (IOException e) {
-		    throw new RuntimeException(e);
-		} catch (InterruptedException e) {
-		    throw new RuntimeException(e);
-		}
-    }
-	
 }

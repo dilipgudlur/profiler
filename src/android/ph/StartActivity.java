@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.content.Intent;
 
 public class StartActivity extends Activity {
-	Runtime runtime = Runtime.getRuntime();
-    Process p1 = null,p2 = null;
 	Button sd,i2c,spi,dma,back,exit;
 	
 	@Override
@@ -85,10 +83,11 @@ public class StartActivity extends Activity {
         
     }
 
+	@SuppressWarnings("unused")
 	private void exec_entry() {
 		try {
-        	p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/local/entry.sh");
-			p2 = Runtime.getRuntime().exec("/data/local/entry.sh");
+        	Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/local/entry.sh");
+			Process p2 = Runtime.getRuntime().exec("/data/local/entry.sh");
         } catch (IOException e) {
 	
 		e.printStackTrace();
