@@ -32,7 +32,8 @@ public final class R {
         public static final int output=0x7f05000d;
         public static final int relativeLayout1=0x7f050000;
         public static final int sdButton=0x7f050006;
-        public static final int spi=0x7f05000f;
+        public static final int sd_out=0x7f05000f;
+        public static final int spi=0x7f050010;
         public static final int spiButton=0x7f050008;
     }
     public static final class layout {
@@ -41,7 +42,8 @@ public final class R {
         public static final int main=0x7f030002;
         public static final int output=0x7f030003;
         public static final int sd=0x7f030004;
-        public static final int spi=0x7f030005;
+        public static final int sd_out=0x7f030005;
+        public static final int spi=0x7f030006;
     }
     public static final class string {
         public static final int app_name=0x7f040001;
