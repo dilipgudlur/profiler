@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.ph.OutputActivity;
 import android.ph.R;
-import android.ph.OuputActivity;
 import android.ph.StartActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -81,10 +81,8 @@ public class SDActivity extends Activity {
         full.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//exec_sdfulltest();
-				Intent i = new Intent(SDActivity.this, OuputActivity.class);
-		        i.putExtra("device", 1);			
-				//SDOuputActivity.disp();
+				Intent i = new Intent(SDActivity.this, OutputActivity.class);
+		        i.putExtra("device", "SD");			
 				startActivity(i);
 			}
 		});
@@ -93,7 +91,9 @@ public class SDActivity extends Activity {
     public static String exec_sdfulltest(){
 		try {
 		    // Executes the command.
-		    Process process = Runtime.getRuntime().exec("/data/kernel-tests/sd_test.sh");
+			@SuppressWarnings("unused")
+			Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/sd_test.sh");
+			Process process = Runtime.getRuntime().exec("/data/kernel-tests/sd_test.sh");
 		    
 		    // Reads stdout.
 		    // NOTE: You can write to stdin of the command using

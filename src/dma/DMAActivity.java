@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.ph.OuputActivity;
+import android.ph.OutputActivity;
 import android.ph.R;
 import android.ph.StartActivity;
 import android.view.View;
@@ -51,8 +51,8 @@ public class DMAActivity extends Activity {
         dma.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(DMAActivity.this, OuputActivity.class);
-		        i.putExtra("device",4);	//4 is DMA	
+				Intent i = new Intent(DMAActivity.this, OutputActivity.class);
+		        i.putExtra("device", "DMA");	//4 is DMA	
 				startActivity(i);	   	        
 			}
 		});                
@@ -61,7 +61,9 @@ public class DMAActivity extends Activity {
     public static String exec_dmafulltest(){
 		try {
 		    // Executes the command.
-		    Process process = Runtime.getRuntime().exec("/data/kernel-tests/msm_dma.sh");
+			@SuppressWarnings("unused")
+			Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/msm_dma.sh");
+			Process process = Runtime.getRuntime().exec("/data/kernel-tests/msm_dma.sh");
 		    
 		    // Reads stdout.
 		    // NOTE: You can write to stdin of the command using

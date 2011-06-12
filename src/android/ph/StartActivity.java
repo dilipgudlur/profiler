@@ -15,7 +15,10 @@ import android.content.Intent;
 
 public class StartActivity extends Activity {
 	Button sd,i2c,spi,dma,back,exit;
-	
+	public enum Device
+	{
+	    SD,I2C,SPI,DMA; 
+	}
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

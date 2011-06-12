@@ -7,8 +7,8 @@ import java.io.InputStreamReader;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.ph.OutputActivity;
 import android.ph.R;
-import android.ph.OuputActivity;
 import android.ph.StartActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,8 +51,8 @@ public class I2CActivity extends Activity{
         i2c.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(I2CActivity.this, OuputActivity.class);
-		        i.putExtra("device",2);	//2 is I2C	
+				Intent i = new Intent(I2CActivity.this, OutputActivity.class);
+		        i.putExtra("device", "I2C");	//2 is I2C	
 				startActivity(i);	        
 			}
 		});                
@@ -60,7 +60,9 @@ public class I2CActivity extends Activity{
     public static String exec_i2cfulltest(){
 		try {
 		    // Executes the command.
-		    Process process = Runtime.getRuntime().exec("/data/kernel-tests/i2c-msm-test.sh");
+			@SuppressWarnings("unused")
+			Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/i2c-msm-test.sh");
+			Process process = Runtime.getRuntime().exec("/data/kernel-tests/i2c-msm-test.sh");
 		    
 		    // Reads stdout.
 		    // NOTE: You can write to stdin of the command using
