@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <AbsoluteLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-        <Button android:id="@+id/i2c" android:layout_width="100dip" android:text="Test I2C" android:layout_height="40dip" android:layout_x="106dip" android:layout_y="28dip"></Button>
-        <Button android:id="@+id/home" android:layout_width="100dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>
-       	<Button android:id="@+id/back" android:layout_width="100dip" android:text="BACK" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
-        <Button android:id="@+id/exit" android:layout_width="100dip" android:text="EXIT" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
+        
+        <TextView android:layout_width="100dip" android:id="@+id/textViewDevice" android:text="Device" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="100dip"></TextView>
+        <EditText android:id="@+id/editTextDevice" android:text="" android:layout_width="100dip" android:layout_x="200dip" android:layout_height="50dip" android:layout_y="100dip"></EditText>
+        
+        <TextView android:layout_width="100dip" android:id="@+id/textViewBlock" android:text="Block Size" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="150dip"></TextView>
+        <EditText android:id="@+id/editTextBlock" android:text="" android:layout_width="100dip" android:layout_x="200dip" android:layout_height="50dip" android:layout_y="150dip"></EditText>
+        
+        <TextView android:layout_width="100dip" android:id="@+id/textViewNumberBlock" android:text="NumberOfBlocks" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="200dip"></TextView>
+        <EditText android:id="@+id/editTextNumberBlock" android:text="" android:layout_width="100dip" android:layout_x="200dip" android:layout_height="50dip" android:layout_y="200dip"></EditText>
+        
+        <TextView android:layout_width="100dip" android:id="@+id/textViewOffset" android:text="Offset" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="250dip"></TextView>
+        <EditText android:id="@+id/editTextOffset" android:text="" android:layout_width="100dip" android:layout_x="200dip" android:layout_height="50dip" android:layout_y="250dip"></EditText>
+        
+        
+        <TextView android:layout_width="100dip" android:id="@+id/textViewIterations" android:text="Iterations" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="300dip"></TextView>
+        <EditText android:id="@+id/editTextIterations" android:text="" android:layout_width="100dip" android:layout_x="200dip" android:layout_height="50dip" android:layout_y="300dip"></EditText>
+        <TextView android:layout_width="100dip" android:id="@+id/textViewVerbose" android:text="Verbose" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="350dip"></TextView>
+        <CheckBox android:layout_width="wrap_content" android:text="" android:layout_x="200dip" android:id="@+id/checkBoxVerbose" android:layout_height="wrap_content" android:layout_y="350dip"></CheckBox>
+        <Button android:id="@+id/i2c" android:layout_width="100dip" android:text="i2c" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="440dip"></Button>
+        <Button android:id="@+id/home" android:layout_width="100dip" android:text="home" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="500dip"></Button>
+       	<Button android:id="@+id/back" android:layout_width="100dip" android:text="back" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="500dip"></Button>
+        <Button android:id="@+id/exit" android:layout_width="100dip" android:text="exit" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="500dip"></Button>
+        
         
     </AbsoluteLayout>

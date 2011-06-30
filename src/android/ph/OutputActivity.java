@@ -11,6 +11,7 @@ import android.ph.R;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class OutputActivity extends Activity {
@@ -20,12 +21,15 @@ public class OutputActivity extends Activity {
     Button home,back,exit;
     String errorString;
     String device;
+   // ProgressBar spinner;
+    //int myProgress = 0;
     
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.output);
         output = (TextView)this.findViewById(R.id.output);
         output.setMovementMethod(new ScrollingMovementMethod());
+        //spinner=(ProgressBar)findViewById(R.id.spinner);
         home = (Button)findViewById(R.id.home);
         back = (Button)findViewById(R.id.back);
         exit = (Button)findViewById(R.id.exit);

@@ -13,16 +13,35 @@ import android.ph.StartActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class I2CActivity extends Activity{
 	Runtime runtime = Runtime.getRuntime();
     Process proc = null;
     Button i2c,exit,home,back;
-        
+    TextView textDevice,textBlock,textNumber,textOffset,textIterations,textVerbose;
+    EditText editDevice,editBlock,editNumber,editOffset,editIterations;
+    CheckBox checkVerbose;
+    
+    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.i2c);
         i2c = (Button)findViewById(R.id.i2c);
+        textDevice = (TextView)findViewById(R.id.textViewDevice);
+        textBlock = (TextView)findViewById(R.id.textViewBlock);
+        textNumber = (TextView)findViewById(R.id.textViewNumberBlock);
+        textOffset = (TextView)findViewById(R.id.textViewOffset);
+        textIterations = (TextView)findViewById(R.id.textViewIterations);
+        textVerbose = (TextView)findViewById(R.id.textViewVerbose);
+        editDevice = (EditText)findViewById(R.id.editTextDevice);
+        editBlock = (EditText)findViewById(R.id.editTextBlock);
+        editNumber = (EditText)findViewById(R.id.editTextNumberBlock);
+        editOffset = (EditText)findViewById(R.id.editTextOffset);
+        editIterations = (EditText)findViewById(R.id.editTextIterations);
+        checkVerbose = (CheckBox)findViewById(R.id.checkBoxVerbose);
         home = (Button)findViewById(R.id.home);
         back = (Button)findViewById(R.id.back);
         exit = (Button)findViewById(R.id.exit);
@@ -61,8 +80,11 @@ public class I2CActivity extends Activity{
 		try {
 		    // Executes the command.
 			@SuppressWarnings("unused")
-			Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/i2c-msm-test.sh");
-			Process process = Runtime.getRuntime().exec("/data/kernel-tests/i2c-msm-test.sh");
+			//Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/i2c-msm-test.sh");
+			String str = "/data/kernel-tests/i2c-msm-changed.sh";
+			String str1=" -i3 -v -n30";
+							
+			Process process = Runtime.getRuntime().exec(str.concat(str1));
 		    
 		    // Reads stdout.
 		    // NOTE: You can write to stdin of the command using

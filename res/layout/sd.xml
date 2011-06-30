@@ -4,9 +4,9 @@
         <Button android:id="@+id/unmount" android:layout_width="100dip" android:text="UNMOUNT" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="120dip"></Button>
         <Button android:id="@+id/remount" android:layout_width="100dip" android:text="REMOUNT" android:layout_height="50dip" android:layout_x="220dip" android:layout_y="50dip"></Button>
         <Button android:id="@+id/fileops" android:layout_width="100dip" android:text="FILEIO" android:layout_height="50dip" android:layout_x="220dip" android:layout_y="120dip"></Button>-->
-        <Button android:id="@+id/full" android:layout_width="100dip" android:text="TEST SDCARD" android:layout_height="50dip" android:layout_x="150dip" android:layout_y="190dip"></Button>
-        <Button android:id="@+id/home" android:layout_width="100dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>
-       	<Button android:id="@+id/back" android:layout_width="100dip" android:text="BACK" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
-        <Button android:id="@+id/exit" android:layout_width="100dip" android:text="EXIT" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
+        <Button android:id="@+id/full" android:layout_width="100dip" android:text="@+id/sdcardText" android:layout_height="50dip" android:layout_x="150dip" android:layout_y="190dip"></Button>
+        <Button android:id="@+id/home" android:layout_width="100dip" android:text="@+id/homeText" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>
+       	<Button android:id="@+id/back" android:layout_width="100dip" android:text="@+id/backText" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
+        <Button android:id="@+id/exit" android:layout_width="100dip" android:text="@+id/exitText" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
     </AbsoluteLayout>
     

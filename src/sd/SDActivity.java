@@ -92,8 +92,10 @@ public class SDActivity extends Activity {
 		try {
 		    // Executes the command.
 			@SuppressWarnings("unused")
-			Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/sd_test.sh");
-			Process process = Runtime.getRuntime().exec("/data/kernel-tests/sd_test.sh");
+			//String[] str = {"export TEST_ENV_SETUP=/data/kernel-tests/test_env_setup.sh","export PATH=$PATH:/data/busybox"};//"/system/bin/chmod 755 /data/kernel-tests/sd_test.sh"};
+			//Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/local/newentry.sh");
+			Process p = Runtime.getRuntime().exec("data/busybox/su");
+			Process process = Runtime.getRuntime().exec("/data/busybox/chmod 777 dev/i2c-3");
 		    
 		    // Reads stdout.
 		    // NOTE: You can write to stdin of the command using

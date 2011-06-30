@@ -62,8 +62,8 @@ public class DMAActivity extends Activity {
 		try {
 		    // Executes the command.
 			@SuppressWarnings("unused")
-			Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/msm_dma.sh");
-			Process process = Runtime.getRuntime().exec("/data/kernel-tests/msm_dma.sh");
+			//Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/msm_dma.sh");
+			Process process = Runtime.getRuntime().exec("/data/local/dmaentry.sh");
 		    
 		    // Reads stdout.
 		    // NOTE: You can write to stdin of the command using

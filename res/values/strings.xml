@@ -2,4 +2,12 @@
 <resources>
     <string name="hello">Hello World, sdprof!</string>
     <string name="app_name">SDPROF</string>
+	<string name="dmaText">Test DMA</string>
+	<string name="spiText">Test SPI</string>
+	<string name="i2cText">Test I2C</string>
+	<string name="sdText">Test SD</string>
+	<string name="homeText">HOME</string>
+	<string name="backText">BACK</string>
+	<string name="exitText">EXIT</string>
+
 </resources>
