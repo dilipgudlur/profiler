@@ -24,7 +24,7 @@ public class I2CActivity extends Activity{
     TextView textDevice,textBlock,textNumber,textOffset,textIterations,textVerbose;
     EditText editDevice,editBlock,editNumber,editOffset,editIterations;
     CheckBox checkVerbose;
-    
+    static String testOptions=" ";
     
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,48 +68,33 @@ public class I2CActivity extends Activity{
         });
         
         i2c.setOnClickListener(new OnClickListener() {
-			@Override
+        	@Override
 			public void onClick(View v) {
+				if(!editDevice.getText().toString().equals(""))
+					testOptions = testOptions.concat("-D dev/i2c-" + editDevice.getText().toString());
+				if(!editBlock.getText().toString().equals(""))
+					testOptions = testOptions.concat(" -b" + editBlock.getText().toString());
+				if(!editNumber.getText().toString().equals(""))
+					testOptions = testOptions.concat(" -n" + editNumber.getText().toString());
+				if(!editOffset.getText().toString().equals(""))
+					testOptions = testOptions.concat(" -o" + editOffset.getText().toString());
+				if(!editIterations.getText().toString().equals(""))
+					testOptions = testOptions.concat(" -i" + editIterations.getText().toString());
+				if(checkVerbose.isChecked())
+					testOptions = testOptions.concat(" -v");
+								
 				Intent i = new Intent(I2CActivity.this, OutputActivity.class);
 		        i.putExtra("device", "I2C");	//2 is I2C	
-				startActivity(i);	        
+				startActivity(i);
 			}
-		});                
+		});     
+        
     }
-    public static String exec_i2cfulltest(){
-		try {
-		    // Executes the command.
-			@SuppressWarnings("unused")
-			//Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/i2c-msm-test.sh");
-			String str = "/data/kernel-tests/i2c-msm-changed.sh";
-			String str1=" -i3 -v -n30";
-							
-			Process process = Runtime.getRuntime().exec(str.concat(str1));
-		    
-		    // Reads stdout.
-		    // NOTE: You can write to stdin of the command using
-
-		    //       process.getOutputStream().
-		    BufferedReader reader = new BufferedReader(
-		            new InputStreamReader(process.getInputStream()));
-		    int read;
-		    char[] buffer = new char[4096];
-		    StringBuffer output = new StringBuffer();
-
-		    while ((read = reader.read(buffer)) > 0) {
-		        output.append(buffer, 0, read);
-		    }
-		    reader.close();
-		    
-		    // Waits for the command to finish.
-		    process.waitFor();
-		    
-		    return output.toString();
-
-		} catch (IOException e) {
-		    throw new RuntimeException(e);
-		} catch (InterruptedException e) {
-		    throw new RuntimeException(e);
-		}
-    }
+    
+    public String i2cScript()
+    {
+    	String i2cStr = "/data/kernel-tests/i2c-msm-changed.sh";
+    	i2cStr = i2cStr.concat(testOptions);
+    	return testOptions + OutputActivity.displayOnScreen(i2cStr);
+    }    
 }  

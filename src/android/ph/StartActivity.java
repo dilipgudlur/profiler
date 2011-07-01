@@ -1,6 +1,9 @@
 package android.ph;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+
 import dma.DMAActivity;
 import i2c.I2CActivity;
 import sd.SDActivity;
@@ -82,8 +85,7 @@ public class StartActivity extends Activity {
 		        //finish();
 		       		        
 			}
-		});         
-        
+		});       
     }
 
 	@SuppressWarnings("unused")
@@ -95,5 +97,5 @@ public class StartActivity extends Activity {
 	
 		e.printStackTrace();
         }	
-	}
+	}	
 }

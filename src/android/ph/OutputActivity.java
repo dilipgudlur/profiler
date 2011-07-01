@@ -1,5 +1,9 @@
 package android.ph;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 import i2c.*;
 import dma.*;
 import spi.*;
@@ -36,10 +40,22 @@ public class OutputActivity extends Activity {
         device = getIntent().getStringExtra("device");     
         
         switch (StartActivity.Device.valueOf(device)) {
-	        case SD:  output.setText( "Output = "+ SDActivity.exec_sdfulltest());  break;
-	        case I2C: output.setText( "Output = "+ I2CActivity.exec_i2cfulltest()); break;
-	        case SPI: output.setText( "Output = "+ SPIActivity.exec_spifulltest()); break;
-	        case DMA: output.setText( "Output = "+ DMAActivity.exec_dmafulltest()); break;
+	        case SD:  
+	        	SDActivity sd = new SDActivity();
+	        	output.setText( "Output = "+ sd.sdScript());  
+	        	break;
+	        case I2C: 
+	        	I2CActivity i2c = new I2CActivity(); 
+	        	output.setText( "Output = "+ i2c.i2cScript()); 
+	        	break;
+	        /*case SPI: 
+	        	SPIActivity spi = new SPIActivity();
+	        	output.setText( "Output = "+ spi.spiScript(); 
+	        	break;
+	        case DMA: 
+	        	DMAActivity dma = new DMAActivity();
+	        	output.setText( "Output = "+ dma.dmaScript(); 
+	        	break;*/
 	        
 	        default: errorString = "Invalid device"; break;
 	    }
@@ -63,5 +79,31 @@ public class OutputActivity extends Activity {
                 startActivity(new Intent(OutputActivity.this, StartActivity.class));
             }
         });
-	}	
+	}
+	
+	public static String displayOnScreen(String calledScript){
+		try {
+		    Process process = Runtime.getRuntime().exec(calledScript);
+		    
+		    // Reads stdout.
+		    // NOTE: You can write to stdin of the command using
+		    //       process.getOutputStream().
+		    BufferedReader reader = new BufferedReader(
+		            new InputStreamReader(process.getInputStream()));
+		    int read;
+		    char[] buffer = new char[4096];
+		    StringBuffer output = new StringBuffer();
+		    while ((read = reader.read(buffer)) > 0) {
+		        output.append(buffer, 0, read);
+		    }
+		    reader.close();
+		    process.waitFor();
+		    return output.toString();
+
+		} catch (IOException e) {
+		    throw new RuntimeException(e);
+		} catch (InterruptedException e) {
+		    throw new RuntimeException(e);
+		}
+    }
 }

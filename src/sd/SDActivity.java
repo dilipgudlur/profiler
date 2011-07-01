@@ -88,40 +88,11 @@ public class SDActivity extends Activity {
 		});
     }
     
-    public static String exec_sdfulltest(){
-		try {
-		    // Executes the command.
-			@SuppressWarnings("unused")
-			//String[] str = {"export TEST_ENV_SETUP=/data/kernel-tests/test_env_setup.sh","export PATH=$PATH:/data/busybox"};//"/system/bin/chmod 755 /data/kernel-tests/sd_test.sh"};
-			//Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/local/newentry.sh");
-			Process p = Runtime.getRuntime().exec("data/busybox/su");
-			Process process = Runtime.getRuntime().exec("/data/busybox/chmod 777 dev/i2c-3");
-		    
-		    // Reads stdout.
-		    // NOTE: You can write to stdin of the command using
-
-		    //       process.getOutputStream().
-		    BufferedReader reader = new BufferedReader(
-		            new InputStreamReader(process.getInputStream()));
-		    int read;
-		    char[] buffer = new char[4096];
-		    StringBuffer output = new StringBuffer();
-
-		    while ((read = reader.read(buffer)) > 0) {
-		        output.append(buffer, 0, read);
-		    }
-		    reader.close();
-		    
-		    // Waits for the command to finish.
-		    process.waitFor();
-		    
-		    return output.toString();
-
-		} catch (IOException e) {
-		    throw new RuntimeException(e);
-		} catch (InterruptedException e) {
-		    throw new RuntimeException(e);
-		}
+    public String sdScript()
+    {
+    	String sdStr = "/data/kernel-tests/i2c-msm-changed.sh";
+    	sdStr = sdStr.concat("");
+    	return OutputActivity.displayOnScreen("");
     }
     
 }
