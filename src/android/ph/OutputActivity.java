@@ -42,11 +42,11 @@ public class OutputActivity extends Activity {
         switch (StartActivity.Device.valueOf(device)) {
 	        case SD:  
 	        	SDActivity sd = new SDActivity();
-	        	output.setText( "Output = "+ sd.sdScript());  
+	        	output.setText( "Output: \n\n"+ sd.sdScript());  
 	        	break;
 	        case I2C: 
 	        	I2CActivity i2c = new I2CActivity(); 
-	        	output.setText( "Output = "+ i2c.i2cScript()); 
+	        	output.setText( "Output:\n\n "+ i2c.i2cScript()); 
 	        	break;
 	        /*case SPI: 
 	        	SPIActivity spi = new SPIActivity();

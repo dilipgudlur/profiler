@@ -21,9 +21,9 @@ public class I2CActivity extends Activity{
 	Runtime runtime = Runtime.getRuntime();
     Process proc = null;
     Button i2c,exit,home,back;
-    TextView textDevice,textBlock,textNumber,textOffset,textIterations,textVerbose;
+    TextView textDevice,textBlock,textNumber,textOffset,textIterations,textVerbose,textProbe;
     EditText editDevice,editBlock,editNumber,editOffset,editIterations;
-    CheckBox checkVerbose;
+    CheckBox checkVerbose,checkProbe;
     static String testOptions=" ";
     
     public void onCreate(Bundle savedInstanceState) {
@@ -36,12 +36,14 @@ public class I2CActivity extends Activity{
         textOffset = (TextView)findViewById(R.id.textViewOffset);
         textIterations = (TextView)findViewById(R.id.textViewIterations);
         textVerbose = (TextView)findViewById(R.id.textViewVerbose);
+        textProbe = (TextView)findViewById(R.id.textViewProbe);
         editDevice = (EditText)findViewById(R.id.editTextDevice);
         editBlock = (EditText)findViewById(R.id.editTextBlock);
         editNumber = (EditText)findViewById(R.id.editTextNumberBlock);
         editOffset = (EditText)findViewById(R.id.editTextOffset);
         editIterations = (EditText)findViewById(R.id.editTextIterations);
         checkVerbose = (CheckBox)findViewById(R.id.checkBoxVerbose);
+        checkProbe = (CheckBox)findViewById(R.id.checkBoxProbe);
         home = (Button)findViewById(R.id.home);
         back = (Button)findViewById(R.id.back);
         exit = (Button)findViewById(R.id.exit);
@@ -71,7 +73,7 @@ public class I2CActivity extends Activity{
         	@Override
 			public void onClick(View v) {
 				if(!editDevice.getText().toString().equals(""))
-					testOptions = testOptions.concat("-D dev/i2c-" + editDevice.getText().toString());
+					testOptions = testOptions.concat(" -D dev/i2c-" + editDevice.getText().toString());
 				if(!editBlock.getText().toString().equals(""))
 					testOptions = testOptions.concat(" -b" + editBlock.getText().toString());
 				if(!editNumber.getText().toString().equals(""))
@@ -82,6 +84,8 @@ public class I2CActivity extends Activity{
 					testOptions = testOptions.concat(" -i" + editIterations.getText().toString());
 				if(checkVerbose.isChecked())
 					testOptions = testOptions.concat(" -v");
+				if(checkProbe.isChecked())
+					testOptions = testOptions.concat(" -p");
 								
 				Intent i = new Intent(I2CActivity.this, OutputActivity.class);
 		        i.putExtra("device", "I2C");	//2 is I2C	
