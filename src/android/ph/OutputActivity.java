@@ -1,8 +1,13 @@
 package android.ph;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 import i2c.*;
 import dma.*;
@@ -46,8 +51,25 @@ public class OutputActivity extends Activity {
 	        	break;
 	        case I2C: 
 	        	I2CActivity i2c = new I2CActivity(); 
-	        	output.setText( "Output:\n\n "+ i2c.i2cScript()); 
+	        	output.setTextSize(20);
+	        	output.setText( "Output:\n\n"+ i2c.i2cScript());
+	        	
 	        	break;
+
+	        case I2CHELP: 
+	        	I2CActivity i2chelp = new I2CActivity(); 
+	        	output.setTextSize(20);
+	        	output.setText( "Output:\n\n"+ i2chelp.i2chelpScript());
+	        	
+	        	break;
+	        	
+	        case I2CLOG: 
+	        	I2CActivity i2clog = new I2CActivity(); 
+	        	output.setTextSize(20);
+	        	output.setText( "Output Written to file:" + i2clog.i2clogScript());
+	        	
+	        	break;
+	        	
 	        /*case SPI: 
 	        	SPIActivity spi = new SPIActivity();
 	        	output.setText( "Output = "+ spi.spiScript(); 
@@ -87,7 +109,7 @@ public class OutputActivity extends Activity {
 		    
 		    // Reads stdout.
 		    // NOTE: You can write to stdin of the command using
-		    //       process.getOutputStream().
+		    // process.getOutputStream().
 		    BufferedReader reader = new BufferedReader(
 		            new InputStreamReader(process.getInputStream()));
 		    int read;
@@ -106,4 +128,62 @@ public class OutputActivity extends Activity {
 		    throw new RuntimeException(e);
 		}
     }
+	
+	public static void logtoFile(File fp, String calledScript){
+		try {
+		    Process process = Runtime.getRuntime().exec(calledScript);
+		    
+		    // Reads stdout.
+		    // NOTE: You can write to stdin of the command using
+		    // process.getOutputStream().
+		    BufferedWriter writer = null;
+		    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		    int read;
+		    char[] buffer = new char[4096];
+		    StringBuilder output = new StringBuilder();
+		    while ((read = reader.read(buffer)) > 0) {
+		    	output.append(buffer, 0, read);
+		    }
+		    try{
+		    writer = new BufferedWriter(new FileWriter(fp));
+		    writer.write(output.toString());
+		    }
+		    catch(Exception e)
+		    { e.printStackTrace();}
+		    finally {
+	            //Close the BufferedWriter
+	            try {
+	                if (writer != null) {
+	                    writer.flush();
+	                    writer.close();
+	                }
+	            } catch (IOException ex) {
+	                ex.printStackTrace();
+	            }
+	        }
+		    
+		    
+		    
+		    //OutputStreamWriter;
+		    
+		    //BufferedReader reader = new BufferedReader(
+		      //      new InputStreamReader(process.getInputStream()));
+		    //int read;
+		    //char[] buffer = new char[4096];
+		    //StringBuffer output = new StringBuffer();
+		    //while ((read = reader.read(buffer)) > 0) {
+		      //  output.append(buffer, 0, read);
+		    //}
+		    reader.close();
+		    //writer.close();
+		    process.waitFor();
+		    //return output.toString();
+
+		} catch (IOException e) {
+		    throw new RuntimeException(e);
+		} catch (InterruptedException e) {
+		    throw new RuntimeException(e);
+		}
+    }
+	
 }

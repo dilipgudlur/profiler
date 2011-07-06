@@ -20,7 +20,7 @@ public class StartActivity extends Activity {
 	Button sd,i2c,spi,dma,back,exit;
 	public enum Device
 	{
-	    SD,I2C,SPI,DMA; 
+	    SD,I2C,I2CHELP,I2CLOG,SPI,DMA; 
 	}
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class StartActivity extends Activity {
         back = (Button)findViewById(R.id.btnBack);
         exit = (Button)findViewById(R.id.btnExit);
         
-        exec_entry(); //call entry script for basic busybox installation and other 
+        //exec_entry(); //call entry script for basic busybox installation and other 
         				//steps
         
         exit.setOnClickListener(new View.OnClickListener() {
@@ -90,12 +90,12 @@ public class StartActivity extends Activity {
 
 	@SuppressWarnings("unused")
 	private void exec_entry() {
-		try {
-        	Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/local/entry.sh");
-			Process p2 = Runtime.getRuntime().exec("/data/local/entry.sh");
+		/*try {
+        	//Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/local/entry.sh");
+			//Process p2 = Runtime.getRuntime().exec("/data/local/entry.sh");
         } catch (IOException e) {
 	
 		e.printStackTrace();
-        }	
+        }*/	
 	}	
 }

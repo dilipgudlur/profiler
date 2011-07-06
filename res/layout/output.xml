@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
     <AbsoluteLayout android:id="@+id/absoluteLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" >
-        <TextView android:layout_x="10dip" android:layout_height="400dip" android:layout_width="400dip" android:id="@+id/output" android:text="@+id/outputText" android:layout_y="10dip" android:maxLines = "20" android:scrollbars="vertical" android:fadeScrollbars="false" ></TextView>
-        <Button android:id="@+id/home" android:layout_width="100dip" android:text="@+id/homeText" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>
-       	<Button android:id="@+id/back" android:layout_width="100dip" android:text="@+id/backText" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
-        <Button android:id="@+id/exit" android:layout_width="100dip" android:text="@+id/exitText" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
+        <TextView android:layout_x="10dip" android:layout_height="400dip" android:layout_width="800dip" android:id="@+id/output" android:text="Output" android:layout_y="10dip" android:maxLines = "20" android:scrollbars="vertical" android:fadeScrollbars="false" ></TextView>
+        <Button android:textSize="30sp" android:id="@+id/home" android:layout_width="110dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>
+       	<Button android:textSize="30sp" android:id="@+id/back" android:layout_width="100dip" android:text="BACK" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/exit" android:layout_width="100dip" android:text="EXIT" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
         <!-- <ProgressBar android:id="@+id/spinner" android:layout_x="100dip" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_y="100dip"></ProgressBar>-->
     </AbsoluteLayout>

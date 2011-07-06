@@ -17,12 +17,14 @@
         <EditText android:hint="1" android:textSize="30sp" android:id="@+id/editTextIterations" android:text="" android:layout_width="100dip" android:layout_x="250dip" android:layout_height="50dip" android:layout_y="250dip"></EditText>
         
         <TextView android:textSize="30sp" android:layout_width="150dip" android:id="@+id/textViewVerbose" android:text="Verbose" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="300dip"></TextView>
-        <CheckBox android:checked="true" android:textSize="30sp" android:layout_width="wrap_content"  android:layout_x="250dip" android:id="@+id/checkBoxVerbose" android:layout_height="wrap_content" android:layout_y="300dip"></CheckBox>
+        <CheckBox android:checked="true" android:layout_width="wrap_content"  android:layout_x="250dip" android:id="@+id/checkBoxVerbose" android:layout_height="wrap_content" android:layout_y="310dip"></CheckBox>
         
         <TextView android:textSize="30sp" android:layout_width="150dip" android:id="@+id/textViewProbe" android:text="Probe" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="350dip"></TextView>
-        <CheckBox android:checked="true" android:textSize="30sp" android:layout_width="wrap_content"  android:layout_x="250dip" android:id="@+id/checkBoxProbe" android:layout_height="wrap_content" android:layout_y="350dip"></CheckBox>
+        <CheckBox android:layout_width="wrap_content"  android:layout_x="250dip" android:id="@+id/checkBoxProbe" android:layout_height="wrap_content" android:layout_y="360dip"></CheckBox>
         
-        <Button android:textSize="30sp" android:id="@+id/i2c" android:layout_width="100dip" android:text="TEST" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="440dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/help" android:layout_width="100dip" android:text="HELP" android:layout_height="50dip" android:layout_x="600dip" android:layout_y="100dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/i2c" android:layout_width="100dip" android:text="TEST" android:layout_height="50dip" android:layout_x="600dip" android:layout_y="200dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/log" android:layout_width="100dip" android:text="LOG" android:layout_height="50dip" android:layout_x="600dip" android:layout_y="300dip"></Button>
         
         <Button android:textSize="30sp" android:id="@+id/home" android:layout_width="110dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="500dip"></Button>
        	<Button android:textSize="30sp" android:id="@+id/back" android:layout_width="100dip" android:text="BACK" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="500dip"></Button>
