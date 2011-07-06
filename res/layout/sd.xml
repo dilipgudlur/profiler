@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
     <AbsoluteLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-       <!-- <Button android:id="@+id/mount" android:layout_width="100dip" android:text="MOUNT" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="50dip"></Button>
-        <Button android:id="@+id/unmount" android:layout_width="100dip" android:text="UNMOUNT" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="120dip"></Button>
-        <Button android:id="@+id/remount" android:layout_width="100dip" android:text="REMOUNT" android:layout_height="50dip" android:layout_x="220dip" android:layout_y="50dip"></Button>
-        <Button android:id="@+id/fileops" android:layout_width="100dip" android:text="FILEIO" android:layout_height="50dip" android:layout_x="220dip" android:layout_y="120dip"></Button>-->
-        <Button android:id="@+id/full" android:layout_width="100dip" android:text="@+id/sdcardText" android:layout_height="50dip" android:layout_x="150dip" android:layout_y="190dip"></Button>
-        <Button android:id="@+id/home" android:layout_width="100dip" android:text="@+id/homeText" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="400dip"></Button>
-       	<Button android:id="@+id/back" android:layout_width="100dip" android:text="@+id/backText" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="400dip"></Button>
-        <Button android:id="@+id/exit" android:layout_width="100dip" android:text="@+id/exitText" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="400dip"></Button>
+       <Button android:textSize="30sp" android:id="@+id/mount" android:layout_width="150dip" android:text="MOUNT" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="100dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/unmount" android:layout_width="180dip" android:text="UNMOUNT" android:layout_height="50dip" android:layout_x="100dip" android:layout_y="200dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/remount" android:layout_width="170dip" android:text="REMOUNT" android:layout_height="50dip" android:layout_x="400dip" android:layout_y="100dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/fileops" android:layout_width="150dip" android:text="FILEIO" android:layout_height="50dip" android:layout_x="400dip" android:layout_y="200dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/full" android:layout_width="150dip" android:text="FULL" android:layout_height="50dip" android:layout_x="250dip" android:layout_y="300dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/home" android:layout_width="110dip" android:text="HOME" android:layout_height="50dip" android:layout_x="200dip" android:layout_y="500dip"></Button>
+       	<Button android:textSize="30sp" android:id="@+id/back" android:layout_width="100dip" android:text="BACK" android:layout_height="50dip" android:layout_x="350dip" android:layout_y="500dip"></Button>
+        <Button android:textSize="30sp" android:id="@+id/exit" android:layout_width="100dip" android:text="EXIT" android:layout_height="50dip" android:layout_x="500dip" android:layout_y="500dip"></Button>
     </AbsoluteLayout>
     

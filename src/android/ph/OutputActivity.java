@@ -3,15 +3,10 @@ package android.ph;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-
 import i2c.*;
-import dma.*;
-import spi.*;
 import sd.*;
 import android.app.Activity;
 import android.content.Intent;
@@ -20,7 +15,6 @@ import android.ph.R;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class OutputActivity extends Activity {

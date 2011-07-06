@@ -60,8 +60,6 @@ public class SPIActivity extends Activity{
     public static String exec_spifulltest(){
 		try {
 		    // Executes the command.
-			@SuppressWarnings("unused")
-			//Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/spidevtest.sh");
 			Process process = Runtime.getRuntime().exec("/data/local/spientry.sh");
 		    
 		    // Reads stdout.

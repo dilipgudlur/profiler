@@ -35,20 +35,22 @@ public final class R {
         public static final int editTextOffset=0x7f050010;
         public static final int exit=0x7f050007;
         public static final int exitText=0x7f050008;
-        public static final int full=0x7f050022;
+        public static final int fileops=0x7f050025;
+        public static final int full=0x7f050026;
         public static final int help=0x7f050017;
         public static final int home=0x7f050003;
         public static final int homeText=0x7f050004;
         public static final int i2c=0x7f050018;
         public static final int i2cButton=0x7f05001b;
         public static final int log=0x7f050019;
+        public static final int mount=0x7f050022;
         public static final int output=0x7f050021;
         public static final int relativeLayout1=0x7f050000;
+        public static final int remount=0x7f050024;
         public static final int sdButton=0x7f05001a;
-        public static final int sdcardText=0x7f050023;
-        public static final int spi=0x7f050024;
+        public static final int spi=0x7f050027;
         public static final int spiButton=0x7f05001c;
-        public static final int spiText=0x7f050025;
+        public static final int spiText=0x7f050028;
         public static final int textViewBlock=0x7f05000b;
         public static final int textViewDevice=0x7f050009;
         public static final int textViewIterations=0x7f050011;
@@ -56,6 +58,7 @@ public final class R {
         public static final int textViewOffset=0x7f05000f;
         public static final int textViewProbe=0x7f050015;
         public static final int textViewVerbose=0x7f050013;
+        public static final int unmount=0x7f050023;
     }
     public static final class layout {
         public static final int dma=0x7f030000;

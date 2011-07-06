@@ -1,15 +1,10 @@
 package i2c;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -92,7 +87,7 @@ public class I2CActivity extends Activity{
         log.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				getTestOptions();
+				generateTestOptions();
 				Intent i = new Intent(I2CActivity.this, OutputActivity.class);
 		        i.putExtra("device", "I2CLOG");	//2 is I2C	
 				startActivity(i);
@@ -103,7 +98,7 @@ public class I2CActivity extends Activity{
         i2c.setOnClickListener(new OnClickListener() {
         	@Override
 			public void onClick(View v) {
-				getTestOptions();
+				generateTestOptions();
 				Intent i = new Intent(I2CActivity.this, OutputActivity.class);
 		        i.putExtra("device", "I2C");	//2 is I2C	
 				startActivity(i);
@@ -112,16 +107,16 @@ public class I2CActivity extends Activity{
         
     }
     
- 
     public String i2cScript()
     {
     	String i2cStr = "/data/kernel-tests/i2c-msm-changed.sh";
-    	String tempOptions = testOptions;
+    	String tempOptions = getTestOptions();
     	setTestOptions();
     	i2cStr = i2cStr.concat(tempOptions);
     	return OutputActivity.displayOnScreen(i2cStr);
     }
-    
+
+   
     public String i2chelpScript()
     {
     	String i2cStr = "/data/kernel-tests/i2c-msm-changed.sh";
@@ -140,7 +135,7 @@ public class I2CActivity extends Activity{
 			}
     	}
     	String i2cStr = "/data/kernel-tests/i2c-msm-changed.sh";
-    	String tempOptions = testOptions;//getTestOptions();
+    	String tempOptions = getTestOptions();
     	setTestOptions();
     	i2cStr = i2cStr.concat(tempOptions);
     	OutputActivity.logtoFile(fp,i2cStr);
@@ -153,7 +148,7 @@ public class I2CActivity extends Activity{
         return dateFormat.format(cal.getTime());
     }
     
-    private String getTestOptions()
+    public void generateTestOptions()
     {
     	if(!editDevice.getText().toString().equals(""))
 			testOptions = testOptions.concat(" -D dev/i2c-" + editDevice.getText().toString());
@@ -169,11 +164,14 @@ public class I2CActivity extends Activity{
 			testOptions = testOptions.concat(" -v");
 		if(checkProbe.isChecked())
 			testOptions = testOptions.concat(" -p");
-		
-		return testOptions;
+	}
+    
+    public String getTestOptions()
+    {	
+    	return testOptions;
     }
     
-    private void setTestOptions()
+    public void setTestOptions()
     {
     	testOptions = " ";
     }

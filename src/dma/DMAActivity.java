@@ -61,8 +61,7 @@ public class DMAActivity extends Activity {
     public static String exec_dmafulltest(){
 		try {
 		    // Executes the command.
-			@SuppressWarnings("unused")
-			//Process p1 = Runtime.getRuntime().exec("/system/bin/chmod 755 /data/kernel-tests/msm_dma.sh");
+					
 			Process process = Runtime.getRuntime().exec("/data/local/dmaentry.sh");
 		    
 		    // Reads stdout.
