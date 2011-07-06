@@ -22,6 +22,8 @@
         <TextView android:textSize="30sp" android:layout_width="150dip" android:id="@+id/textViewProbe" android:text="Probe" android:layout_x="100dip" android:layout_height="50dip" android:layout_y="350dip"></TextView>
         <CheckBox android:layout_width="wrap_content"  android:layout_x="250dip" android:id="@+id/checkBoxProbe" android:layout_height="wrap_content" android:layout_y="360dip"></CheckBox>
         
+        <TextView android:textColor="#ff0000" android:textSize="30sp" android:layout_width="500dip" android:id="@+id/textViewInstr" android:text="Please see HELP before proceeding" android:layout_x="400dip" android:layout_height="50dip" android:layout_y="20dip"></TextView>
+        
         <Button android:textSize="30sp" android:id="@+id/help" android:layout_width="100dip" android:text="HELP" android:layout_height="50dip" android:layout_x="600dip" android:layout_y="100dip"></Button>
         <Button android:textSize="30sp" android:id="@+id/i2c" android:layout_width="100dip" android:text="TEST" android:layout_height="50dip" android:layout_x="600dip" android:layout_y="200dip"></Button>
         <Button android:textSize="30sp" android:id="@+id/log" android:layout_width="100dip" android:text="LOG" android:layout_height="50dip" android:layout_x="600dip" android:layout_y="300dip"></Button>

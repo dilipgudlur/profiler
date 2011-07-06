@@ -53,7 +53,7 @@ public class OutputActivity extends Activity {
 	        case I2CHELP: 
 	        	I2CActivity i2chelp = new I2CActivity(); 
 	        	output.setTextSize(20);
-	        	output.setText( "Output:\n\n"+ i2chelp.i2chelpScript());
+	        	output.setText( "Help File for I2C Test\n\n"+ i2chelp.i2chelpScript());
 	        	
 	        	break;
 	        	
